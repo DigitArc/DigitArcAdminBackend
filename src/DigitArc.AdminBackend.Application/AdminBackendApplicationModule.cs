@@ -24,6 +24,7 @@ namespace DigitArc.AdminBackend
             Configure<AbpAutoMapperOptions>(options =>
             {
                 options.AddMaps<AdminBackendApplicationModule>();
+                options.AddProfile<AdminBackendApplicationAutoMapperProfile>();
             });
         }
     }
