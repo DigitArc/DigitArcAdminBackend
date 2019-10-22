@@ -9,14 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DigitArc.AdminBackend.EntityFrameworkCore;
-using DigitArc.AdminBackend.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Volo.Abp;
 using Volo.Abp.Account.Web;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
-using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Autofac;
 using Volo.Abp.Localization;
@@ -29,7 +27,6 @@ namespace DigitArc.AdminBackend
     [DependsOn(
         typeof(AdminBackendHttpApiModule),
         typeof(AbpAutofacModule),
-        typeof(AbpAspNetCoreMultiTenancyModule),
         typeof(AdminBackendApplicationModule),
         typeof(AdminBackendEntityFrameworkCoreDbMigrationsModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
@@ -155,12 +152,6 @@ namespace DigitArc.AdminBackend
             app.UseCors(DefaultCorsPolicyName);
             app.UseAuthentication();
             app.UseJwtTokenMiddleware();
-
-            if (MultiTenancyConsts.IsEnabled)
-            {
-                app.UseMultiTenancy();
-            }
-
             app.UseIdentityServer();
             app.UseAuthorization();
             app.UseAbpRequestLocalization();
