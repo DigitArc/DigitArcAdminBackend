@@ -257,3 +257,6 @@ src/DigitArc.AdminBackend.Web.Host/Logs/*
 src/DigitArc.AdminBackend.IdentityServer/Logs/*
 src/DigitArc.AdminBackend.HttpApi.Host/Logs/*
 src/DigitArc.AdminBackend.HttpApi.Host/Logs/*
+
+
+src/DigitArc.AdminBackend.HttpApi.Host/appsettings.json
